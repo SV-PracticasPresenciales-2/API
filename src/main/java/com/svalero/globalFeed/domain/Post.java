@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Entity(name = "posts")
 public class Post {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
