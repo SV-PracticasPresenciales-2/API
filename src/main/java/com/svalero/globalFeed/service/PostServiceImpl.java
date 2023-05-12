@@ -52,11 +52,13 @@ public class PostServiceImpl implements PostService{
     public Post addPost(PostDTO postDTO) throws UserNotFoundException {
         logger.info("addPost - postDTO: " + postDTO);
         User user = userRepository.findById(postDTO.getUserPost()).orElseThrow(UserNotFoundException::new);
+        logger.info("addPost - user: " + user);
         Post post = new Post();
         post.setPostDate(LocalDateTime.now());
-        post.setMessage(post.getMessage());
+        post.setMessage(postDTO.getMessage());
         post.setUserPost(user);
         post.setLikes(0);
+        logger.info("addPost - post: " + post);
         return postRepository.save(post);
     }
 
