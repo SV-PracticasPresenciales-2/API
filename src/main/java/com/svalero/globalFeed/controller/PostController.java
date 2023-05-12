@@ -40,7 +40,7 @@ public class PostController {
             logger.info("END GET Posts");
             return ResponseEntity.ok(posts);
         }
-        logger.info("GET User: BAD REQUEST");
+        logger.info("GET Post: BAD REQUEST");
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 

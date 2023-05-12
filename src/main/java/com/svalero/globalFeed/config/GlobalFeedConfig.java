@@ -76,7 +76,7 @@ public class GlobalFeedConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/register", "/token", "/h2-console/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/user/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/users/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/post/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/posts/**").permitAll()
                 .anyRequest().authenticated();
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 
