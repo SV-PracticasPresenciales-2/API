@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.ConstraintViolationException;
 import javax.validation.Valid;
+import javax.websocket.server.PathParam;
 import java.util.List;
 import java.util.Map;
 
@@ -64,6 +65,14 @@ public class PostController {
     public ResponseEntity<ErrorException> deletePost(@PathVariable("id") long id) throws PostNotFoundException {
         logger.info("DELETE Posts");
         postService.deletePost(id);
+        logger.info("END DELETE Posts");
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/posts")
+    public ResponseEntity<ErrorException> deletePost(@RequestParam String username) throws UserNotFoundException {
+        logger.info("DELETE Posts");
+        postService.deleteAllPostFromUsername(username);
         logger.info("END DELETE Posts");
         return ResponseEntity.noContent().build();
     }

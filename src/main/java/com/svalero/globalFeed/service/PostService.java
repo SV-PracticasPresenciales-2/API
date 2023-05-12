@@ -14,6 +14,7 @@ public interface PostService {
     Post addPost(PostDTO postDTO) throws UserNotFoundException;
     Post modifyPost(long id, PostDTO postDTO) throws PostNotFoundException;
     void deletePost(long id) throws PostNotFoundException;
+    void deleteAllPostFromUsername(String username) throws UserNotFoundException;
 
 
 

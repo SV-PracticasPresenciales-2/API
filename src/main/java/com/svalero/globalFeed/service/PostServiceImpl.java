@@ -80,4 +80,14 @@ public class PostServiceImpl implements PostService{
         Post post = postRepository.findById(id).orElseThrow(PostNotFoundException::new);
         postRepository.delete(post);
     }
+
+    @Override
+    public void deleteAllPostFromUsername(String username) throws UserNotFoundException {
+        User user = userRepository.findByUsername(username);
+        if(user == null){
+            throw new UserNotFoundException();
+        }
+        List<Post> postList = postRepository.findByUserPost(user);
+        postRepository.deleteAll(postList);
+    }
 }
