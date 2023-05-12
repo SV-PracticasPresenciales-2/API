@@ -38,7 +38,6 @@ public class User {
     @Column
     private LocalDate registerDate;
     @Column
-    @NotBlank(message = "The phone number cannot be empty")
     @NotNull(message = "The phone number is obligatory")
     private Integer phoneNumber;
     @Column

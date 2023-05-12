@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
@@ -15,6 +17,8 @@ public class Post {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
     @Column
+    @NotBlank(message = "The message cannot be empty")
+    @NotNull(message = "The message is obligatory")
     private String message;
     @Column
     private LocalDateTime postDate;
