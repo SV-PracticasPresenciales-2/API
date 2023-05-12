@@ -11,6 +11,7 @@ import com.svalero.globalFeed.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -32,7 +33,8 @@ public class PostServiceImpl implements PostService{
     @Override
     public List<Post> findAll() {
         logger.info("findAll");
-        return postRepository.findAll();
+        Sort sort = Sort.by(Sort.Direction.DESC, "postDate");
+        return postRepository.findAll(sort);
     }
 
     @Override
